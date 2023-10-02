@@ -26,9 +26,15 @@ struct DestinationListingView: View {
         SortDescriptor(\Destination.priority, order: .reverse)
     ]) var destinations: [Destination]
     
-    init(sort: SortDescriptor<Destination>) {
-        self._destinations = Query(sort: [sort])
+    init(sort: SortDescriptor<Destination>, searchString: String) {
+        self._destinations = Query(filter: #Predicate {
+            if searchString.isEmpty { return true }
+            else {
+                return $0.name.localizedStandardContains(searchString)
+            }
+        }, sort: [sort])
     }
+    
     var body: some View {
         List {
             ForEach(destinations) { destination in
@@ -54,5 +60,5 @@ struct DestinationListingView: View {
 }
 
 #Preview {
-    DestinationListingView(sort: SortDescriptor(\Destination.name))
+    DestinationListingView(sort: SortDescriptor(\Destination.name), searchString: "")
 }
