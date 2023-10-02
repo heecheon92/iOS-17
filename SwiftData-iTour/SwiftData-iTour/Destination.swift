@@ -15,6 +15,11 @@ import SwiftData
     var date: Date
     var priority: Int
     
+    // @Relationship
+    /// Without @Relationship macro, SwiftData does not delete "sights" model (@Model) when the bound
+    /// Destination object is deleted from the database.
+    @Relationship(deleteRule: .cascade) var sights = [Sight]()
+    
     init(name: String = "", details: String = "", date: Date = .now, priority: Int = 2) {
         self.name = name
         self.details = details

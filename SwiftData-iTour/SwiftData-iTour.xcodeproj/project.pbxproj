@@ -14,6 +14,7 @@
 		4B21DF242ACA623B00C59129 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B21DF232ACA623B00C59129 /* Destination.swift */; };
 		4B21DF262ACA776500C59129 /* EditDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B21DF252ACA776500C59129 /* EditDestinationView.swift */; };
 		4B21DF282ACA7EB100C59129 /* DestinationListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B21DF272ACA7EB100C59129 /* DestinationListingView.swift */; };
+		4B21DF2C2ACA851F00C59129 /* Sight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B21DF2B2ACA851F00C59129 /* Sight.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		4B21DF232ACA623B00C59129 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		4B21DF252ACA776500C59129 /* EditDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDestinationView.swift; sourceTree = "<group>"; };
 		4B21DF272ACA7EB100C59129 /* DestinationListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationListingView.swift; sourceTree = "<group>"; };
+		4B21DF2B2ACA851F00C59129 /* Sight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sight.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			children = (
 				4B21DF152ACA621100C59129 /* SwiftData_iTourApp.swift */,
 				4B21DF172ACA621100C59129 /* ContentView.swift */,
+				4B21DF2B2ACA851F00C59129 /* Sight.swift */,
 				4B21DF272ACA7EB100C59129 /* DestinationListingView.swift */,
 				4B21DF232ACA623B00C59129 /* Destination.swift */,
 				4B21DF192ACA621400C59129 /* Assets.xcassets */,
@@ -149,6 +152,7 @@
 				4B21DF182ACA621100C59129 /* ContentView.swift in Sources */,
 				4B21DF162ACA621100C59129 /* SwiftData_iTourApp.swift in Sources */,
 				4B21DF242ACA623B00C59129 /* Destination.swift in Sources */,
+				4B21DF2C2ACA851F00C59129 /* Sight.swift in Sources */,
 				4B21DF262ACA776500C59129 /* EditDestinationView.swift in Sources */,
 				4B21DF282ACA7EB100C59129 /* DestinationListingView.swift in Sources */,
 			);
