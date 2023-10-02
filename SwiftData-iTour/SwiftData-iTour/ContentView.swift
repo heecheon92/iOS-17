@@ -12,36 +12,40 @@ struct ContentView: View {
     // modelContext injected via .modelContainer
     @Environment(\.modelContext) var modelContext
     
-    // @Query is corresponded binding for @Model
-    @Query var destinations: [Destination]
+    @State private var path = [Destination]()
+    @State private var sortOrder = SortDescriptor(\Destination.name)
     
     var body: some View {
-        NavigationStack {
-            List {
-                ForEach(destinations) { destination in
-                    VStack(alignment: .leading) {
-                        Text(destination.name)
-                            .font(.headline)
-                        
-                        Text(destination.date.formatted(date: .long, time: .shortened))
+        NavigationStack(path: $path) {
+            DestinationListingView(sort: sortOrder)
+                .navigationTitle("iTour")
+                .navigationDestination(for: Destination.self) {
+                    EditDestinationView(destination: $0)
+                }
+                .toolbar {
+                    Button("Add Destination", systemImage: "plus", action: addDestination)
+                    
+                    Menu("Sort", systemImage: "arrow.up.arrow.down") {
+                        Picker("Sort", selection: $sortOrder) {
+                            Text("Name")
+                                .tag(SortDescriptor(\Destination.name))
+                            
+                            Text("Priority")
+                                .tag(SortDescriptor(\Destination.priority, order: .reverse))
+                            
+                            Text("Date")
+                                .tag(SortDescriptor(\Destination.date))
+                        }
+                        .pickerStyle(.inline)
                     }
                 }
-            }
-            .navigationTitle("iTour")
-            .toolbar {
-                Button("Add Samples", action: addSamples)
-            }
         }
     }
     
-    func addSamples() {
-        let rome = Destination(name: "Rome")
-        let florence = Destination(name: "Florence")
-        let naples = Destination(name: "Naples")
-        
-        modelContext.insert(rome)
-        modelContext.insert(florence)
-        modelContext.insert(naples)
+    func addDestination() {
+        let destination = Destination()
+        modelContext.insert(destination)
+        path = [destination]
     }
 }
 
