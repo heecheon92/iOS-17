@@ -32,6 +32,9 @@ struct ContentView: View {
                         ImageView(profile: selectedProfile, size: rect.size)
                             .offset(x: rect.minX, y: rect.minY)
                             .animation(.snappy(duration: 0.35, extraBounce: 0), value: rect)
+                            .onAppear {
+                                print("Root: ", rect)
+                            }
                     }
                 }
             }

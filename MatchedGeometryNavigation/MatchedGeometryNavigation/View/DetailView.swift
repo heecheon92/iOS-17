@@ -63,7 +63,8 @@ struct DetailView: View {
                         }
                     }
                     .anchorPreference(key: AnchorKey.self, value: .bounds, transform: { anchor in
-                        [selectedProfile.id: anchor]
+                        print("DetailView: ", gp[anchor])
+                        return [selectedProfile.id: anchor]
                     })
                 }
                 .frame(height: 400)
